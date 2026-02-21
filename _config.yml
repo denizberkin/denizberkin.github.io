@@ -228,7 +228,6 @@ plugins:
   - jekyll-toc
   - jekyll-twitter-plugin
   - jemoji
-  - jekyll-socials
 
 # Sitemap settings
 defaults:
@@ -651,6 +650,12 @@ third_party_libraries:
 # -----------------------------------------------------------------------------
 # Get external JSON data
 # -----------------------------------------------------------------------------
+
+social:
+  email: berkindeniz2000@gmail.com
+  github: denizberkin
+  linkedin: denizberkin
+  scholar: TQrCibcAAAAJ
 
 jekyll_get_json:
   - data: resume
