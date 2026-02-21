@@ -9,8 +9,8 @@ profile:
   image: prof_pic.gif
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Personal: <a href="mailto:berkindeniz2000@gmail.com" aria-label="Personal email" title="Personal email"><i class="fa-solid fa-envelope"></i></a> berkindeniz2000@gmail.com</p>
-    <p>Istanbul Technical University, Computer Science and Engineering: <a href="mailto:kahya25@itu.edu.tr" aria-label="School email" title="School email"><i class="fa-solid fa-envelope"></i></a></p>
+    <p>Personal: <a href="mailto:berkindeniz2000@gmail.com" aria-label="Personal email" title="Personal email"><i class="fa-solid fa-envelope"></i></a></p>
+    <p>Istanbul Technical University, CS M.Sc. <a href="mailto:kahya25@itu.edu.tr" aria-label="School email" title="School email"><i class="fa-solid fa-envelope"></i></a></p>
     <p>Huawei Technologies: <a href="mailto:berkin.deniz.kahya1@huawei.com" aria-label="Work email" title="Work email"><i class="fa-solid fa-envelope"></i></a></p>
     <p>+90 532 701 7380, Istanbul, Turkey</p>
 
