@@ -5,5 +5,8 @@ cv_pdf: /assets/pdf/resume.pdf # path to your CV PDF file
 email: berkindeniz2000@gmail.com # your email address
 github_username: denizberkin # your GitHub user name
 linkedin_username: denizberkin # your LinkedIn user name
+researchgate_username: Berkin-Kahya
+scholar_userid: TQrCibcAAAAJ
+orcid_id: 0009-0001-2286-1034
 # rss_icon: true # comment this line to hide the RSS icon
 scholar_userid: TQrCibcAAAAJ # your Google Scholar ID
