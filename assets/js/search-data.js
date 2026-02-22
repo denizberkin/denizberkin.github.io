@@ -405,11 +405,6 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/outer_wilds/";
-            },},{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
             },},{id: "books-but-what-is-a-fourier-series",
           title: 'But what is a Fourier Series?',
           description: "",
