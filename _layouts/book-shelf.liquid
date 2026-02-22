@@ -6,44 +6,99 @@ layout: page
 {% if page.collection and page.collection.size > 0 %}
   {% assign collection = site[page.collection] %}
   {% if collection and collection.size > 0 %}
-    {% for item in collection reversed %}
-      {% assign current_year = item.started | date: '%Y' %}
-      {% if current_year != year %}
-        {% unless forloop.first %}
-          </ul>
-        {% endunless %}
-        <h1 id="y{{item.started | date: "%Y"}}">
-          <a href="{{ current_year | prepend: '/books/' | relative_url }}">{{ current_year }}</a>
-        </h1>
-        <ul>
-          {% assign year = current_year %}
-      {% endif %}
+    <div class="media-shelf-list">
+      {% for item in collection reversed %}
+        {% if item.link %}
+          {% assign item_link = item.link %}
+        {% else %}
+          {% assign item_link = item.url | relative_url %}
+        {% endif %}
 
-      <figure class="cover">
-        <a class="cover-link" href="{{ item.url | relative_url }}">
-          {% if item.cover %}
-            <img alt="{{ item.title }} cover" src="{{ item.cover | prepend: page.covers | relative_url }}" style="height:200px">
-          {% elsif item.olid %}
-            <img alt="{{ item.title }} cover" src="https://covers.openlibrary.org/b/olid/{{ item.olid }}-L.jpg?default=false" style="height:200px">
-          {% elsif item.isbn %}
-            <img alt="{{ item.title }} cover" src="https://covers.openlibrary.org/b/isbn/{{ item.isbn }}-L.jpg?default=false" style="height:200px">
+        {% if item.preview_type %}
+          {% assign preview_type = item.preview_type | downcase %}
+        {% else %}
+          {% assign preview_type = 'image' %}
+        {% endif %}
+
+        {% assign youtube_src = item.preview %}
+        {% if preview_type == 'youtube' and item.preview %}
+          {% if item.preview contains 'watch?v=' %}
+            {% assign youtube_id = item.preview | split: 'watch?v=' | last | split: '&' | first %}
+            {% assign youtube_src = 'https://www.youtube.com/embed/' | append: youtube_id %}
+          {% elsif item.preview contains 'youtu.be/' %}
+            {% assign youtube_id = item.preview | split: 'youtu.be/' | last | split: '?' | first %}
+            {% assign youtube_src = 'https://www.youtube.com/embed/' | append: youtube_id %}
           {% endif %}
-          {% if item.status %}
-            {% assign statuses = 'abandoned,finished,interested,paused,queued,reading,reread' | split: ',' %}
-            {% assign status = item.status | downcase | strip %}
-            {% if statuses contains status %}
-              <figcaption class="{{ status | downcase }}">{{ status | upcase }}</figcaption>
-            {% else %}
-              <figcaption class="uncategorized">UNCATEGORIZED</figcaption>
-            {% endif %}
-          {% else %}
-            <figcaption class="uncategorized">UNCATEGORIZED</figcaption>
-          {% endif %}
-        </a>
-      </figure>
-      {% if forloop.last %}
-        </ul>
-      {% endif %}
-    {% endfor %}
+        {% endif %}
+
+        {% assign item_summary = item.summary | default: item.description | default: item.excerpt | default: item.content %}
+
+        <article class="media-shelf-item">
+          <a class="media-shelf-link" href="{{ item_link }}">
+            <div class="media-shelf-preview">
+              {% if item.preview_html %}
+                {{ item.preview_html }}
+              {% elsif preview_type == 'video' and item.preview %}
+                <video controls muted loop playsinline preload="metadata" src="{{ item.preview | relative_url }}"></video>
+              {% elsif preview_type == 'youtube' and youtube_src %}
+                <iframe
+                  src="{{ youtube_src }}"
+                  title="{{ item.title }} preview"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              {% elsif preview_type == 'iframe' and item.preview %}
+                <iframe
+                  src="{{ item.preview }}"
+                  title="{{ item.title }} preview"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              {% elsif item.preview %}
+                {% if item.preview contains '://' %}
+                  <img alt="{{ item.title }} preview" src="{{ item.preview }}">
+                {% else %}
+                  <img alt="{{ item.title }} preview" src="{{ item.preview | relative_url }}">
+                {% endif %}
+              {% elsif item.cover %}
+                <img alt="{{ item.title }} cover" src="{{ item.cover | prepend: page.covers | relative_url }}">
+              {% elsif item.olid %}
+                <img alt="{{ item.title }} cover" src="https://covers.openlibrary.org/b/olid/{{ item.olid }}-L.jpg?default=false">
+              {% elsif item.isbn %}
+                <img alt="{{ item.title }} cover" src="https://covers.openlibrary.org/b/isbn/{{ item.isbn }}-L.jpg?default=false">
+              {% else %}
+                <div class="media-shelf-preview-placeholder">No preview</div>
+              {% endif %}
+            </div>
+
+            <div class="media-shelf-content">
+              <h3 class="media-shelf-title">{{ item.title }}</h3>
+
+              {% if item.media_type or item.author or item.released or item.status %}
+                <p class="media-shelf-meta">
+                  {% if item.media_type %}
+                    <span>{{ item.media_type }}</span>
+                  {% endif %}
+                  {% if item.author %}
+                    <span> · {{ item.author }}</span>
+                  {% endif %}
+                  {% if item.released %}
+                    <span> · {{ item.released }}</span>
+                  {% endif %}
+                  {% if item.status %}
+                    <span> · {{ item.status }}</span>
+                  {% endif %}
+                </p>
+              {% endif %}
+
+              <p class="media-shelf-description">{{ item_summary | strip_html | strip | truncate: 220 }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
   {% endif %}
 {% endif %}
