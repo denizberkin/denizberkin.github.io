@@ -1,8 +1,9 @@
 ---
 layout: book-shelf
-title: bookshelf
+title: Structured noise I enjoy
 permalink: /books/
 nav: true
+nav_title: Misc
 nav_order: 4
 collection: books
 ---

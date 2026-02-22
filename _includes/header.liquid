@@ -108,7 +108,11 @@
                     {%- assign url = p.url -%}
                   {%- endif %}
                   <a class="nav-link" href="{{ url | relative_url }}">
-                    {{- p.title }}
+                    {% if p.permalink == '/books/' %}
+                      {{- p.nav_title | default: p.title -}}
+                    {% else %}
+                      {{- p.title }}
+                    {% endif %}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
