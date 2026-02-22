@@ -1,14 +1,14 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - denizberkin
 
-repo_description_lines_max: 2
+repo_description_lines_max: 3
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - denizberkin/denizberkin.github.io
+  - denizberkin/torch_pipeline
+  - denizberkin/inzva-dlsg26-cv
+  - denizberkin/drive_dataset_evaluations
+  - denizberkin/esci-ranking
+  - denizberkin/inzva_applied_vision_2025
+  - denizberkin/chess_evaluator
+  - denizberkin/bbox-to-seg
