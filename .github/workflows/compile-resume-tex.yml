@@ -6,10 +6,10 @@ on:
       - main
       - master
     paths:
-      - 'assets/resume-src/**/*.tex'
-      - 'assets/resume-src/**/*.sty'
-      - 'assets/resume-src/**/*.cls'
-      - '.github/workflows/compile-resume-tex.yml'
+      - "assets/resume-src/**/*.tex"
+      - "assets/resume-src/**/*.sty"
+      - "assets/resume-src/**/*.cls"
+      - ".github/workflows/compile-resume-tex.yml"
   workflow_dispatch:
 
 permissions:
@@ -52,5 +52,5 @@ jobs:
       - name: Commit updated resume PDF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: update resume PDF from TeX source [skip ci]'
+          commit_message: "chore: update resume PDF from TeX source [skip ci]"
           file_pattern: assets/pdf/resume.pdf

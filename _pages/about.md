@@ -33,7 +33,7 @@ Hi, I am an AI Researcher and Software Engineer working across medical image pro
 I currently work as a Research Engineer at Huawei Technologies, where I develop ranking algorithms for large-scale search systems and conduct research on phonetic features in statistical language modeling, contributing to improvements in A/B testing and key metrics such as CTR and DTR.
 
 Prior to Huawei, I worked at Vitamu, building deep learning models and an end-to-end pipeline for AI-assisted mammography and conducted histopathological image segmentation research as an undergraduate at Yıldız Technical University.
-Currently, I am pursuing my M.Sc. in Computer Science and Engineering at Istanbul Technical University, working on MRI and medical image reconstruction. 
+Currently, I am pursuing my M.Sc. in Computer Science and Engineering at Istanbul Technical University, working on MRI and medical image reconstruction.
 
 I am drawn to problems that require neat solutions, interesting system designs and simple theoretical solutions.
 Feel free to reach out!
