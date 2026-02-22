@@ -5,7 +5,7 @@ author: Mobius Digital
 cover: assets/img/book_covers/outer_wilds.jpg
 media_type: Game
 preview_type: image
-preview: /assets/img/book_covers/outer_wilds.jpg
+preview: /assets/img/book_covers/outer_wilds.png
 link: https://store.steampowered.com/app/753640/Outer_Wilds/
 summary: A mystery about a solar system trapped in an endless time loop, focusing on exploration and discovery to uncover the secrets of this strange universe.
 olid: OL43499941M # use Open Library ID to fetch cover (if no `cover` is provided)
