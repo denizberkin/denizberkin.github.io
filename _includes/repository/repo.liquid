@@ -18,6 +18,7 @@
 {% endif %}
 
 {% assign repository_preview = include.repository.preview %}
+{% assign repository_description = include.repository.description %}
 
 {% assign lang = site.lang | split: '-' | first %}
 
@@ -45,15 +46,34 @@
   {% assign max_lines = 2 %}
 {% endif %}
 
-<div class="repo p-2 text-center">
+<div class="repo p-2">
   <a href="{{ repository_link }}">
     {% if repository_preview %}
-      {% if repository_preview contains '://' %}
-        <img class="w-100 rounded" alt="{{ repository_full }}" src="{{ repository_preview }}">
-      {% else %}
-        <img class="w-100 rounded" alt="{{ repository_full }}" src="{{ repository_preview | relative_url }}">
-      {% endif %}
-      <div class="small mt-2">{{ repository_full }}</div>
+      <div class="repo-card d-flex align-items-start gap-3 text-start">
+        {% if repository_preview contains '://' %}
+          <img class="repo-preview rounded" alt="{{ repository_full }}" src="{{ repository_preview }}">
+        {% else %}
+          <img class="repo-preview rounded" alt="{{ repository_full }}" src="{{ repository_preview | relative_url }}">
+        {% endif %}
+        <div class="repo-content">
+          <div class="repo-name">
+            <strong>{{ repository_full }}</strong>
+          </div>
+          <div
+            class="repo-description small"
+            data-repo-description="{{ repository_full }}"
+            {% if repository_description %}
+              data-custom-description="true"
+            {% endif %}
+          >
+            {% if repository_description %}
+              {{ repository_description }}
+            {% else %}
+              Loading repository description...
+            {% endif %}
+          </div>
+        </div>
+      </div>
     {% else %}
       <img
         class="only-light w-100"
