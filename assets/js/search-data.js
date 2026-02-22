@@ -400,11 +400,26 @@ ninja.data = [{
             window.location.href = "/blog/2015/formatting-and-links/";
           
         },
-      },{id: "books-the-godfather",
+      },{id: "books-outer-wilds",
+          title: 'Outer Wilds',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/outer_wilds/";
+            },},{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "books-but-what-is-a-fourier-series",
+          title: 'But what is a Fourier Series?',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/3blue1brown-fourier-series/";
+            },},{id: "books-linear-transformations-and-matrices",
+          title: 'Linear transformations and matrices',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/3blue1brown-linear-transformations/";
             },},{id: "news-a-simple-inline-announcement",
           title: 'A simple inline announcement.',
           description: "",
