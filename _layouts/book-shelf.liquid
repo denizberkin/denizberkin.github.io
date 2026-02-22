@@ -34,7 +34,7 @@ layout: page
         {% assign item_summary = item.summary | default: item.description | default: item.excerpt | default: item.content %}
 
         <article class="media-shelf-item">
-          <a class="media-shelf-link" href="{{ item_link }}">
+          <div class="media-shelf-row">
             <div class="media-shelf-preview">
               {% if item.preview_html %}
                 {{ item.preview_html }}
@@ -75,7 +75,9 @@ layout: page
             </div>
 
             <div class="media-shelf-content">
-              <h3 class="media-shelf-title">{{ item.title }}</h3>
+              <h3 class="media-shelf-title">
+                <a href="{{ item_link }}">{{ item.title }}</a>
+              </h3>
 
               {% if item.media_type or item.author or item.released or item.status %}
                 <p class="media-shelf-meta">
@@ -96,7 +98,7 @@ layout: page
 
               <p class="media-shelf-description">{{ item_summary | strip_html | strip | truncate: 220 }}</p>
             </div>
-          </a>
+          </div>
         </article>
       {% endfor %}
     </div>
