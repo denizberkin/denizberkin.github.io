@@ -16,18 +16,18 @@ repo_description_lines_max: 3
 
 github_repos:
   - repo: denizberkin/denizberkin.github.io
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/torch_pipeline
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/inzva-dlsg26-cv
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/drive_dataset_evaluations
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/esci-ranking
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/inzva_applied_vision_2025
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/chess_evaluator
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
   - repo: denizberkin/bbox-to-seg
-    preview: /assets/repositories/prof_pic.gif
+    preview: /assets/img/repositories/prof_pic.gif
