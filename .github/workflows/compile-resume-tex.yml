@@ -36,6 +36,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: assets/resume-src/resume.tex
+          work_in_root_file_dir: true
           latexmk_shell_escape: true
 
       - name: Copy compiled PDF to site assets
