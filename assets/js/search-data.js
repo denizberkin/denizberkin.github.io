@@ -30,8 +30,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-structured-noise-i-enjoy",
-          title: "Structured noise I enjoy",
+        },{id: "nav-structured-noise",
+          title: "Structured noise",
           description: "",
           section: "Navigation",
           handler: () => {
