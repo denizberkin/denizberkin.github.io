@@ -1,0 +1,55 @@
+name: Compile Resume PDF (TeX)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'assets/resume-src/**/*.tex'
+      - 'assets/resume-src/**/*.sty'
+      - 'assets/resume-src/**/*.cls'
+      - '.github/workflows/compile-resume-tex.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_resume:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-latex-extra
+
+      - name: Compile LaTeX resume
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: assets/resume-src/resume.tex
+          latexmk_shell_escape: true
+
+      - name: Copy compiled PDF to site assets
+        run: |
+          if [ ! -f assets/resume-src/resume.pdf ]; then
+            echo 'Expected output assets/resume-src/resume.pdf was not found.'
+            ls -la assets/resume-src
+            exit 1
+          fi
+          mkdir -p assets/pdf
+          cp assets/resume-src/resume.pdf assets/pdf/resume.pdf
+
+      - name: Commit updated resume PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update resume PDF from TeX source [skip ci]'
+          file_pattern: assets/pdf/resume.pdf
