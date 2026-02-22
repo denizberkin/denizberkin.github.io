@@ -193,6 +193,13 @@ ul.task-list input[type="checkbox"] {
   .repo-description {
     margin-top: 0.3rem;
   }
+
+  .repo-user-preview {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    object-fit: cover;
+  }
 }
 
 // Social (bottom)

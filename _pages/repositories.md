@@ -11,7 +11,7 @@ nav_order: 2
 
 ## GitHub users
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+<div class="repositories d-flex flex-column align-items-stretch">
   {% for user in site.data.repositories.github_users %}
     {% include repository/repo_user.liquid username=user %}
   {% endfor %}
@@ -22,7 +22,7 @@ nav_order: 2
 
 ## GitHub Repositories
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+<div class="repositories d-flex flex-column align-items-stretch">
   {% for repo in site.data.repositories.github_repos %}
     {% include repository/repo.liquid repository=repo %}
   {% endfor %}
@@ -66,12 +66,12 @@ nav_order: 2
           return response.json();
         })
         .then((data) => {
-          const description = data.description || 'No repository description provided.';
+          const description = data.description || '---';  // fallback to '---' if description is null
           cache.set(repository, description);
           setDescriptionText(repository, description);
         })
         .catch(() => {
-          const fallback = 'Description unavailable right now.';
+          const fallback = '---';
           cache.set(repository, fallback);
           setDescriptionText(repository, fallback);
         });
