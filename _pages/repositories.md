@@ -1,82 +1,47 @@
 ---
 layout: page
 permalink: /repositories/
-title: Repositories
-description: A collection of the repositories that belong to me or that I find interesting.
+title: repositories
+description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
 nav: true
-nav_order: 2
+nav_order: 4
 ---
 
 {% if site.data.repositories.github_users %}
 
 ## GitHub users
 
-<div class="repositories d-flex flex-column align-items-stretch">
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for user in site.data.repositories.github_users %}
     {% include repository/repo_user.liquid username=user %}
   {% endfor %}
 </div>
+
+---
+
+{% if site.repo_trophies.enabled %}
+{% for user in site.data.repositories.github_users %}
+{% if site.data.repositories.github_users.size > 1 %}
+
+  <h4>{{ user }}</h4>
+  {% endif %}
+  <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+    {% include repository/repo_trophies.liquid username=user %}
+  </div>
+
+---
+
+{% endfor %}
+{% endif %}
 {% endif %}
 
 {% if site.data.repositories.github_repos %}
 
 ## GitHub Repositories
 
-<div class="repositories d-flex flex-column align-items-stretch">
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for repo in site.data.repositories.github_repos %}
     {% include repository/repo.liquid repository=repo %}
   {% endfor %}
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const descriptionElements = document.querySelectorAll('[data-repo-description]');
-    const cache = new Map();
-
-    const setDescriptionText = (repository, text) => {
-      const targets = document.querySelectorAll(`[data-repo-description="${repository}"]`);
-      targets.forEach((target) => {
-        if (!target.dataset.customDescription) {
-          target.textContent = text;
-        }
-      });
-    };
-
-    descriptionElements.forEach((element) => {
-      const repository = element.dataset.repoDescription;
-      if (!repository || element.dataset.customDescription) {
-        return;
-      }
-
-      if (cache.has(repository)) {
-        setDescriptionText(repository, cache.get(repository));
-        return;
-      }
-
-      const [owner, name] = repository.split('/');
-      if (!owner || !name) {
-        return;
-      }
-
-      fetch(`https://api.github.com/repos/${owner}/${name}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch repository metadata');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          const description = data.description || '---';  // fallback to '---' if description is null
-          cache.set(repository, description);
-          setDescriptionText(repository, description);
-        })
-        .catch(() => {
-          const fallback = '---';
-          cache.set(repository, fallback);
-          setDescriptionText(repository, fallback);
-        });
-    });
-  });
-</script>
-
 {% endif %}

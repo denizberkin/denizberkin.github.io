@@ -1,24 +1,9 @@
-{% if include.repository.repo %}
-  {% assign repository_full = include.repository.repo %}
-{% else %}
-  {% assign repository_full = include.repository %}
-{% endif %}
-
-{% assign repo_url = repository_full | split: '/' %}
+{% assign repo_url = include.repository | split: '/' %}
 {% if site.data.repositories.github_users contains repo_url.first %}
   {% assign show_owner = false %}
 {% else %}
   {% assign show_owner = true %}
 {% endif %}
-
-{% if include.repository.link %}
-  {% assign repository_link = include.repository.link %}
-{% else %}
-  {% assign repository_link = 'https://github.com/' | append: repository_full %}
-{% endif %}
-
-{% assign repository_preview = include.repository.preview %}
-{% assign repository_description = include.repository.description %}
 
 {% assign lang = site.lang | split: '-' | first %}
 
@@ -46,45 +31,17 @@
   {% assign max_lines = 2 %}
 {% endif %}
 
-<div class="repo p-2">
-  <a href="{{ repository_link }}">
-    {% if repository_preview %}
-      <div class="repo-card d-flex align-items-start gap-3 text-start">
-        {% if repository_preview contains '://' %}
-          <img class="repo-preview rounded" alt="{{ repository_full }}" src="{{ repository_preview }}">
-        {% else %}
-          <img class="repo-preview rounded" alt="{{ repository_full }}" src="{{ repository_preview | relative_url }}">
-        {% endif %}
-        <div class="repo-content">
-          <div class="repo-name">
-            <strong>{{ repository_full }}</strong>
-          </div>
-          <div
-            class="repo-description small"
-            data-repo-description="{{ repository_full }}"
-            {% if repository_description %}
-              data-custom-description="true"
-            {% endif %}
-          >
-            {% if repository_description %}
-              {{ repository_description }}
-            {% else %}
-              ---
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% else %}
-      <img
-        class="only-light w-100"
-        alt="{{ repository_full }}"
-        src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-      >
-      <img
-        class="only-dark w-100"
-        alt="{{ repository_full }}"
-        src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-      >
-    {% endif %}
+<div class="repo p-2 text-center">
+  <a href="https://github.com/{{ include.repository }}">
+    <img
+      class="only-light w-100"
+      alt="{{ include.repository }}"
+      src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
+    >
+    <img
+      class="only-dark w-100"
+      alt="{{ include.repository }}"
+      src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
+    >
   </a>
 </div>

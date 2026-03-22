@@ -1,33 +1,14 @@
 github_users:
   - denizberkin
 
-repo_description_lines_max: 3
-
-# You can keep simple string entries (owner/repo), or use object entries for custom cards.
-# Object entry fields:
-# - repo: required, GitHub repository in owner/repo format
-# - preview: optional, local path (e.g. /assets/img/my-preview.png) or full URL
-# - link: optional, custom link target (defaults to the GitHub repo URL)
-#
-# Example:
-# - repo: denizberkin/torch_pipeline
-#   preview: /assets/img/repositories/torch_pipeline.png
-#   link: https://github.com/denizberkin/torch_pipeline
+repo_description_lines_max: 2
 
 github_repos:
-  - repo: denizberkin/denizberkin.github.io
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/torch_pipeline
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/inzva-dlsg26-cv
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/drive_dataset_evaluations
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/esci-ranking
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/inzva_applied_vision_2025
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/chess_evaluator
-    preview: /assets/img/repositories/prof_pic.gif
-  - repo: denizberkin/bbox-to-seg
-    preview: /assets/img/repositories/prof_pic.gif
+  - denizberkin/denizberkin.github.io
+  - denizberkin/torch_pipeline
+  - denizberkin/inzva-dlsg26-cv
+  - denizberkin/drive_dataset_evaluations
+  - denizberkin/esci-ranking
+  - denizberkin/inzva_applied_vision_2025
+  - denizberkin/chess_evaluator
+  - denizberkin/bbox-to-seg
