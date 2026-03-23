@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /repositories/
-title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+title: Repositories
+description: List of some of my repositories on Github
 nav: true
 nav_order: 4
 ---
@@ -19,20 +19,27 @@ nav_order: 4
 
 ---
 
-{% if site.repo_trophies.enabled %}
-{% for user in site.data.repositories.github_users %}
-{% if site.data.repositories.github_users.size > 1 %}
+## GitHub Profile Pictures
 
-  <h4>{{ user }}</h4>
-  {% endif %}
-  <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo_trophies.liquid username=user %}
-  </div>
-
----
-
-{% endfor %}
-{% endif %}
+<div class="repositories d-flex flex-wrap justify-content-center gap-2">
+  {% for user in site.data.repositories.github_users %}
+    <div class="repo p-1 text-center">
+      <a href="https://github.com/{{ user }}" aria-label="{{ user }} GitHub profile">
+        <img
+          class="rounded-circle"
+          alt="{{ user }}"
+          src="https://avatars.githubusercontent.com/{{ user }}?size=160"
+          width="96"
+          height="96"
+          loading="lazy"
+        >
+      </a>
+      {% if site.data.repositories.github_users.size > 1 %}
+        <div class="small mt-1">{{ user }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
 {% endif %}
 
 {% if site.data.repositories.github_repos %}

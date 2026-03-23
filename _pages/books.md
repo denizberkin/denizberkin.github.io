@@ -4,7 +4,7 @@ title: Structured noise
 permalink: /books/
 nav: true
 nav_title: Misc
-nav_order: 4
+nav_order: 5
 collection: books
 ---
 
