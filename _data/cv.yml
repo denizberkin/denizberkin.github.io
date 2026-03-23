@@ -42,7 +42,7 @@ cv:
         location: Place, Country
         start_date: xxxx
         end_date: xxxx
-        summary: -
+        summary: ""
         highlights:
           - d1
           - d2
@@ -58,16 +58,15 @@ cv:
           - d1
           - d2
 
-
     Publications:
-      - title: -
+      - title: ""
         authors:
           - a1
           - a2
-        publisher: 
+        publisher:
         releaseDate: xxxx-xx-xx
-        url: -
-        summary: -
+        url: ""
+        summary: ""
 
     Skills:
       - name: Physics
@@ -91,8 +90,8 @@ cv:
         icon: fa-solid fa-location-dot
 
     Projects:
-      - name: -
-        summary: -
+      - name: ""
+        summary: ""
         highlights:
           - d1
           - d2
@@ -100,6 +99,6 @@ cv:
         end_date: xxxx-xx-xx
 
     References:
-      - name: -
+      - name: ""
         icon: fa-solid fa-laptop
-        reference: 
+        reference:
