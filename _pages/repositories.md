@@ -11,34 +11,30 @@ nav_order: 4
 
 ## GitHub users
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+<div class="github-users-merged">
   {% for user in site.data.repositories.github_users %}
-    {% include repository/repo_user.liquid username=user %}
-  {% endfor %}
-</div>
+    <div class="github-user-row">
+      <div class="github-user-avatar-block">
+        <a href="https://github.com/{{ user }}" aria-label="{{ user }} GitHub profile">
+          <img
+            class="github-user-avatar"
+            alt="{{ user }}"
+            src="https://avatars.githubusercontent.com/{{ user }}?size=320"
+            width="160"
+            height="160"
+            loading="lazy"
+          >
+        </a>
+        <div class="github-user-name">{{ user }}</div>
+      </div>
 
----
-
-## GitHub Profile Pictures
-
-<div class="repositories d-flex flex-wrap justify-content-center gap-2">
-  {% for user in site.data.repositories.github_users %}
-    <div class="repo p-1 text-center">
-      <a href="https://github.com/{{ user }}" aria-label="{{ user }} GitHub profile">
-        <img
-          class="rounded-circle"
-          alt="{{ user }}"
-          src="https://avatars.githubusercontent.com/{{ user }}?size=160"
-          width="96"
-          height="96"
-          loading="lazy"
-        >
-      </a>
-      {% if site.data.repositories.github_users.size > 1 %}
-        <div class="small mt-1">{{ user }}</div>
-      {% endif %}
+      <div class="github-user-stats">
+        {% include repository/repo_user.liquid username=user %}
+      </div>
     </div>
-  {% endfor %}
+
+{% endfor %}
+
 </div>
 {% endif %}
 
