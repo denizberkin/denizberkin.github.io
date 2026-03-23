@@ -264,18 +264,22 @@ ul.task-list input[type="checkbox"] {
 .github-users-merged {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
   margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .github-user-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 0.65rem 0.8rem;
   border: 1px solid var(--global-divider-color);
   border-radius: 0.8rem;
   background-color: var(--global-card-bg-color);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .github-user-avatar-block {

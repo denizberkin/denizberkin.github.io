@@ -5,10 +5,10 @@ repo_description_lines_max: 2
 
 github_repos:
   - denizberkin/torch_pipeline
+  - denizberkin/inzva_dlsg25
   - denizberkin/inzva-dlsg26-cv
-  - denizberkin/drive_dataset_evaluations
-  # - denizberkin/esci-ranking
   - denizberkin/denizberkin.github.io
   - denizberkin/chess_evaluator
   - denizberkin/inzva_applied_vision_2025
   - denizberkin/bbox-to-seg
+  - denizberkin/drive_dataset_evaluations
