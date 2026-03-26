@@ -52,5 +52,5 @@ jobs:
       - name: Commit updated resume PDF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update resume PDF from TeX source [skip ci]"
+          commit_message: "chore: update resume PDF from TeX source"
           file_pattern: assets/pdf/resume.pdf
